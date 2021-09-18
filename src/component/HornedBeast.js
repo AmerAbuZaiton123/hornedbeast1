@@ -1,39 +1,53 @@
-import react from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-class HornedBeast extends react.Component {
-   
-   constructor(props)
-   {
-       super(props)
-       this.state={
-           Like:0
-       }
-   }
-   
-   NumberLike=()=>
-   { this.setState({ Like:this.state.Like+1
-   })}
-    render() {
-   
-        return (
-            <div>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.props.image_url}/>
-                    <Card.Body>
-                        <Card.Title>{this.props.title }</Card.Title>
-                        <Card.Text>
-                           {this.props.description}
-                        </Card.Text>
-                        <Card.Title>{this.state.Like }</Card.Title>
-                        
-                        <Button variant="primary" onClick={this.NumberLike} >like</Button>
-                    </Card.Body>
-                </Card>
-            </div>
-        )
+import React, { Component } from 'react'
+import { Button, Col, Card } from 'react-bootstrap';
+
+export class HornedBeast extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Like1: 0,
+        }
+    }
+    getHandleOpen = () => {
+        let name = this.props.Name
+        let mSrc = this.props.src;
+        let mdisc = this.props.disc
+        this.props.show(name,mSrc, mdisc);
+
     }
 
+    imageClick = () => {
+        this.setState({
+            Like1: this.state.Like1 + 1
+        })
+    }
+    render() {
+
+        return (
+
+            <Col>
+                <Card style={{ width: '19rem', margin: "21px" }} >
+                    <Card.Img alt='HornedBeast' class="card-img-top" title={this.props.Name} src={this.props.src} onClick={this.show} />
+                    <Card.Body>
+                        <Card.Title>{this.props.Name}</Card.Title>
+                        
+                           
+                    
+                        <Card.Text> 
+                            Likes { this.Like1}
+                            <br/>
+                            {this.props.disc}
+                        </Card.Text>
+
+
+                        <Button variant="primary" onClick={this.getHandleOpen}>Go somewhere</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
+
+
+        )
+    }
 }
+
 export default HornedBeast
