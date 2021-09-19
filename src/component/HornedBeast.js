@@ -27,14 +27,15 @@ export class HornedBeast extends Component {
 
             <Col>
                 <Card style={{ width: '19rem', margin: "21px" }} >
-                    <Card.Img alt='HornedBeast' class="card-img-top" title={this.props.Name} src={this.props.src} onClick={this.show} />
+                    <Card.Img alt='HornedBeast' class="card-img-top" title={this.props.Name} src={this.props.src} onClick={this.show}
+                     onClick={this.imageClick} />
                     <Card.Body>
                         <Card.Title>{this.props.Name}</Card.Title>
                         
                            
                     
                         <Card.Text> 
-                            Likes { this.Like1}
+                            Likes {this.state.Like1}
                             <br/>
                             {this.props.disc}
                         </Card.Text>
