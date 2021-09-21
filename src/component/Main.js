@@ -6,21 +6,21 @@ import { Form, Col } from 'react-bootstrap';
 
 class Main extends Component {
 
-    changForm = (e) => {
-        let allData = Data;
-        let filteredData = []
+    newForm = (e) => {
+        let Data1 = Data;
+        let filterD = []
         let aniHorns = Number(e.target.value);
-        filteredData = allData.filter(h => {
+        filterD = Data1.filter(h => {
 
             return (h.horns === aniHorns)
 
         })
-        console.log(filteredData)
-        if (filteredData.length === 0) {
-            filteredData = Data;
+        console.log(filterD)
+        if (filterD.length === 0) {
+            filterD = Data;
         }
-        console.log(filteredData)
-        this.props.showHorns(filteredData)
+        console.log(filterD)
+        this.props.showHorns(filterD)
 
     }
     render() {
@@ -37,7 +37,7 @@ class Main extends Component {
 
                     >
                         <Col sm={4}  >
-                            <Form.Select size="sm" onChange={this.changForm}>
+                            <Form.Select size="sm" onChange={this.newForm}>
                                 <option value="">choose Number of horns</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
